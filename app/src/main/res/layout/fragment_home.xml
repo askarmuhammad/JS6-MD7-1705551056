@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/round_nocorner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/opb_logo_basic_1"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="50dp"
+            android:orientation="vertical"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextClock
+                android:id="@+id/text_clock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:format24Hour="MMM dd, yyyy k:mm:ss">
+
+            </TextClock>
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/rectangle"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:background="@drawable/crown">-->
+
+<!--                </ImageView>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="0 Point"-->
+<!--                    android:paddingTop="10dp"-->
+<!--                    android:paddingLeft="10dp"-->
+<!--                    android:textSize="30dp">-->
+
+<!--                </TextView>-->
+
+<!--            </LinearLayout>-->
+
+            <TextView
+                android:id="@+id/ayo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="30dp"
+                android:textColor="#000"
+                android:text="Ayo, tambahkan event mu!">
+
+            </TextView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+            <android.support.v7.widget.CardView
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Event Tahun 2020"
+                    android:textSize="30dp"
+                    android:paddingLeft="80dp"
+                    android:textColor="#000"
+                    android:paddingTop="20dp">
+
+                </TextView>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="60dp">
+
+                <ImageView
+                    android:id="@+id/januari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:onClick="januari1"
+                    android:background="@drawable/number1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Januari"
+                    android:layout_marginTop="95dp"
+                    android:layout_marginLeft="45dp"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/number2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="140dp">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Februari"
+                    android:textSize="20dp"
+                    android:layout_marginTop="95dp"
+                    android:layout_marginLeft="155dp">
+
+                </TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/number3">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maret"
+                    android:layout_marginTop="96dp"
+                    android:layout_marginLeft="272dp"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/april"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/number4"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="April"
+                    android:layout_marginTop="226dp"
+                    android:layout_marginLeft="57dp"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/number5"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginLeft="140dp">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mei"
+                    android:textSize="20dp"
+                    android:layout_marginTop="226dp"
+                    android:layout_marginLeft="175dp">
+
+                </TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="140dp"
+                    android:background="@drawable/number6">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Juni"
+                    android:layout_marginTop="226dp"
+                    android:layout_marginLeft="278dp"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                    <ImageView
+                        android:id="@+id/juli"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="270dp"
+                        android:layout_marginLeft="30dp"
+                        android:background="@drawable/number7"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Juli"
+                        android:layout_marginTop="356dp"
+                        android:layout_marginLeft="63dp"
+                        android:textSize="20dp">
+
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/number8"
+                        android:layout_marginTop="270dp"
+                        android:layout_marginLeft="140dp">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Augustus"
+                        android:textSize="20dp"
+                        android:layout_marginTop="356dp"
+                        android:layout_marginLeft="150dp">
+
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="250dp"
+                        android:layout_marginTop="270dp"
+                        android:background="@drawable/number9">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="September"
+                        android:layout_marginTop="356dp"
+                        android:layout_marginLeft="255dp"
+                        android:textSize="20dp">
+
+                    </TextView>
+
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </ScrollView>
+            <!--    <TextView-->
+            <!--        android:id="@+id/text_home"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:layout_marginStart="8dp"-->
+            <!--        android:layout_marginTop="8dp"-->
+            <!--        android:layout_marginEnd="8dp"-->
+            <!--        android:textAlignment="center"-->
+            <!--        android:textSize="20sp"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintTop_toTopOf="parent" />-->
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>

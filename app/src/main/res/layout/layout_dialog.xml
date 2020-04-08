@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <EditText
+        android:id="@+id/nama_acara"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="nama acara">
+        
+    </EditText>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textview_tanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal acara">
+
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/tanggal_acara"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/calendar"
+                    android:layout_centerInParent="true">
+
+                </ImageView>
+
+        </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_marginTop="70dp"
+        android:layout_width="188dp"
+        android:layout_height="188dp"
+        android:layout_gravity="center"
+        android:src="@drawable/gallery">
+
+    </ImageView>
+
+    <Button
+        android:id="@+id/btnphoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ambil dari gallery">
+
+    </Button>
+</LinearLayout>
