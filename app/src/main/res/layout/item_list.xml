@@ -1,12 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageviewrecycleviewjanuari"
+        android:layout_width="100dp"
+        android:layout_height="100dp">
+
+    </ImageView>
 
     <TextView
+        android:id="@+id/textrecycleviewacara"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_height="wrap_content"
-        android:text="tahun">
+        android:text="nama acara"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/imageviewrecycleviewjanuari">
     </TextView>
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/textrecycleviewtanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginLeft="20dp"
+            android:text="tanggal acara"
+            android:layout_below="@id/textrecycleviewacara"
+            android:layout_toEndOf="@id/imageviewrecycleviewjanuari">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/textimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:text="tanggal acara"
+            android:layout_below="@id/textrecycleviewacara"
+            android:layout_toEndOf="@id/imageviewrecycleviewjanuari">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact :"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:inputType="number"
+            android:paddingTop="20dp"
+            android:digits="0123456789+"
+            android:layout_below="@+id/textrecycleviewtanggal"
+            android:layout_toEndOf="@id/imageviewrecycleviewjanuari">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nomor"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:paddingTop="20dp"
+            android:layout_toEndOf="@+id/contact"
+            android:layout_below="@+id/textrecycleviewtanggal">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/textrecyclerviewdeskripsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+</android.support.v7.widget.CardView>

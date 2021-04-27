@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.msi.latihan1.februari.DetailFebruariActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="40dp">
+
+            <ImageView
+                android:id="@+id/textimage"
+                android:layout_width="400dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center">
+
+            </ImageView>
+
+            </android.support.v7.widget.CardView>
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/textacara"
+                android:textSize="40dp"
+                android:textColor="#000"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="fdsfsf"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/texttanggal"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:text="fdsfsdfd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView
+                android:id="@+id/kontak"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="25dp"
+                android:textColor="#000"
+                android:text="Contact :">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nomor"
+                android:textColor="#000"
+                android:textSize="25sp"
+                >
+
+            </TextView>
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/textdeskripsi"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:textSize="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

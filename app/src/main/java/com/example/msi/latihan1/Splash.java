@@ -20,12 +20,7 @@ public class Splash extends AppCompatActivity {
         ImageView babi = (ImageView) findViewById(R.id.babi);
         Animation fadeAnim = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         babi.startAnimation(fadeAnim);
-//        babi.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                babi.animate().alpha(1f).setDuration(1000);
-//            }
-//        });
+
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {

@@ -15,13 +15,23 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.msi.latihan1.ui.login.LoginActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -40,6 +50,9 @@ public class RegisterActivity extends AppCompatActivity {
     private ImageView mDisplayDate;
     private EditText email;
     private TextView mDisplayDate2;
+    private TextView gender;
+    private EditText password;
+    RadioButton pria,wanita;
     private TextInputLayout textInputLayoutpass;
     private TextInputLayout textInputLayoutconfirm;
     RadioGroup radioGroup;
@@ -52,12 +65,17 @@ public class RegisterActivity extends AppCompatActivity {
 
         mDisplayDate = (ImageView) findViewById(R.id.date);
         mDisplayDate2 = (TextView) findViewById(R.id.lahir);
+        gender = (TextView) findViewById(R.id.gender);
         email = (EditText) findViewById(R.id.username);
         textInputLayoutpass = findViewById(R.id.textInputLayout1);
         radioGroup = (RadioGroup) findViewById(R.id.rgroup);
+        password = findViewById(R.id.password);
+        pria = findViewById(R.id.pria);
+        wanita = findViewById(R.id.wanita);
         btn = (Button) findViewById(R.id.register);
         textInputLayoutpass = (TextInputLayout) findViewById(R.id.textInputLayout1);
         textInputLayoutconfirm = (TextInputLayout) findViewById(R.id.textInputLayout2);
+
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -90,6 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 validation();
+
             }
         });
     }
@@ -153,6 +172,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (isSelected == -1) {
             Toast.makeText(RegisterActivity.this, "pilih salah satu gender", Toast.LENGTH_LONG).show();
+
             return;
         }
         if (!validateEmail() | !validatePass() | !validatePassConfirm()) {
@@ -169,6 +189,65 @@ public class RegisterActivity extends AppCompatActivity {
 
         Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+        register();
         finish();
+
+
+    }
+
+    private void register(){
+        StringRequest insertData = new StringRequest(Request.Method.POST, ServerAPI.URL_REGISTER, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("volley", "Response insert data : " + response.toString());
+                try {
+                    JSONObject data = new JSONObject(response);
+                    String status_respon;
+                    status_respon = data.getString("status");
+
+                    if (status_respon.equals("berhasil")) {
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("volley", "Error insert data : " + error.getMessage());
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("email",email.getText().toString());
+                params.put("password",password.getText().toString());
+                params.put("date",mDisplayDate2.getText().toString());
+                params.put("gender",gender.getText().toString());
+                return params;
+            }
+
+        };
+        AppController.getInstance().addToRequestQueue(insertData);
+    }
+    public void onRadioButtonClicked(View view){
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch (view.getId()){
+            case R.id.pria:
+                if (checked)
+                    gender.setText("pria");
+                    break;
+            case R.id.wanita:
+                if (checked)
+                    gender.setText("wanita");
+                    break;
+        }
     }
 }

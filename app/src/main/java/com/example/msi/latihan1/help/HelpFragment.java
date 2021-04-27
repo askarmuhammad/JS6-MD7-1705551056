@@ -22,11 +22,9 @@ public class HelpFragment extends Fragment {
         helpViewModel =
                 ViewModelProviders.of(this).get(HelpViewModel.class);
         View root = inflater.inflate(R.layout.fragment_help, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
         helpViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
             }
         });
         return root;

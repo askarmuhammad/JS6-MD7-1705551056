@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="22dp"
-        android:src="@drawable/opb_logo_basic_1"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,15 +131,25 @@
             android:layout_marginTop="460dp"
             android:layout_marginEnd="32dp"
             android:text="Pria"
+            android:id="@+id/pria"
+            android:onClick="onRadioButtonClicked"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioButton
+            android:id="@+id/wanita"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
+            android:onClick="onRadioButtonClicked"
             android:layout_marginBottom="50dp"
             android:text="Wanita" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </RadioGroup>
 

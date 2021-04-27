@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="21dp"
-        android:src="@drawable/opb_logo_basic_1"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/loading"
         app:layout_constraintEnd_toStartOf="@+id/loading"
         app:layout_constraintStart_toStartOf="@+id/loading"

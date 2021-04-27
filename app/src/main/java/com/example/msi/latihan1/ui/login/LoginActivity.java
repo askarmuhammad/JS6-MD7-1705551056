@@ -12,6 +12,7 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -21,12 +22,24 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.example.msi.latihan1.AppController;
 import com.example.msi.latihan1.DrawerActivity;
 import com.example.msi.latihan1.MainActivity;
 import com.example.msi.latihan1.R;
 import com.example.msi.latihan1.RegisterActivity;
+import com.example.msi.latihan1.ServerAPI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 //import com.google.firebase.auth.AuthResult;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
@@ -34,9 +47,7 @@ import com.google.android.gms.tasks.Task;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-//    private FirebaseAuth firebaseAuth;
     TextView textView;
-    private ProgressDialog progressDialog;
     public static final String EXTRA_TEXT = "com.example.msi.latihan1.EXTRA_TEXT";
 
     @Override
@@ -46,13 +57,6 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-//        firebaseAuth = FirebaseAuth.getInstance();
-//        progressDialog = new ProgressDialog(this);
-//        final FirebaseUser user = firebaseAuth.getCurrentUser();
-////        if (user != null){
-////            finish();
-////            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-////        }
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
@@ -98,7 +102,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 setResult(Activity.RESULT_OK);
 
-                //Complete and destroy login activity once successful
                 finish();
             }
         });
@@ -106,12 +109,12 @@ public class LoginActivity extends AppCompatActivity {
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // ignore
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // ignore
+
             }
 
             @Override
@@ -137,37 +140,56 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                loadingProgressBar.setVisibility(View.VISIBLE);
-//                loginViewModel.login(usernameEditText.getText().toString(),
-//                        passwordEditText.getText().toString());
                 login();
-//                        (usernameEditText.getText().toString(), passwordEditText.getText().toString());
             }
         });
     }
     public void login(){
-//        progressDialog.setMessage("Loading");
-//        progressDialog.show();
+
         EditText mail = (EditText) findViewById(R.id.username);
-        String email = mail.getText().toString();
-        Intent masuk = new Intent( LoginActivity.this, DrawerActivity.class);
-        masuk.putExtra(EXTRA_TEXT, email);
-                    finish();
-        startActivity(masuk);
-//        firebaseAuth.signInWithEmailAndPassword(username, userpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                if (task.isSuccessful()){
-//                    progressDialog.dismiss();
-//                    Toast.makeText(LoginActivity.this,"Login berhasil",Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//                    finish();
-//                }else{
-//                    Toast.makeText(LoginActivity.this,"Login gagal",Toast.LENGTH_SHORT).show();
-//                    progressDialog.dismiss();
-//                }
-//            }
-//        });
+        final String Smail = mail.getText().toString();
+        EditText pass = (EditText) findViewById(R.id.password);
+        final String Spass = pass.getText().toString();
+
+        StringRequest logindata = new StringRequest(Request.Method.POST, ServerAPI.URL_LOGIN, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("volley", "Response login : " + response.toString());
+                try {
+                    JSONObject data = new JSONObject(response);
+                    String status_respon;
+                    status_respon = data.getString("status");
+
+                    if (status_respon.equals("berhasil")) {
+                        Intent intent = new Intent(LoginActivity.this, DrawerActivity.class);
+                        intent.putExtra(EXTRA_TEXT, Smail);
+                        startActivity(intent);
+                        finish();
+                    } else if (status_respon.equals("gagal")) {
+                        Toast.makeText(LoginActivity.this,"Login Gagal",Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("volley", "Error insert data : " + error.getMessage());
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("email", Smail);
+                params.put("password",Spass);
+                return params;
+            }
+
+        };
+        AppController.getInstance().addToRequestQueue(logindata);
+
     }
 
     private void updateUiWithUser(LoggedInUserView model) {

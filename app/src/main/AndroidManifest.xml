@@ -3,20 +3,37 @@
     package="com.example.msi.latihan1">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-            <activity android:name=".JanuariActivity"
-            android:label="Event Bulan Janari 2020">
-        </activity>
-        <activity android:name=".SongActivity" />
-        <activity android:name=".OrganicActivity" />
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".EventActivity"
+            android:label="List upcoming events"/>
+        <activity android:name=".DetailMaretActivity" />
+        <activity android:name=".DialogMaretActivity" />
+        <activity android:name=".MaretActivity" />
+        <activity android:name=".DialogFebruari" />
+        <activity android:name="com.example.msi.DialogFebruari" />
+        <activity
+            android:name=".februari.DetailFebruariActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".februari.FebruariActivity"
+            android:label="Event Bulan Februari 2020" />
+        <activity
+            android:name=".DetailJanuariActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".JanuariActivity"
+            android:label="List Event" />
         <activity
             android:name=".DrawerActivity"
             android:label="@string/title_activity_drawer"
@@ -30,13 +47,13 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/Login"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Splash"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
